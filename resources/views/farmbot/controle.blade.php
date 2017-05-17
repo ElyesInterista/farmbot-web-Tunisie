@@ -273,7 +273,7 @@ console.log(speed);
 
 
 $("#GO").click(function() {
-$.post("/farmbot-web/public/Api/GoToAxis",{user_id:"{{\Illuminate\Support\Facades\Auth::id()}}",X:$("#xAxis").val(),Y:$("#yAxis").val(),Z:$("#zAxis").val(),speed:speed,state:1});
+$.post("/farmbot-web/public/Api/GoToAxis",{user_id:"{{\Illuminate\Support\Facades\Auth::id()}}",X:$("#xAxis").val(),Y:$("#yAxis").val(),Z:$("#zAxis").val(),speed:speed});
 });
 
      $("#stop").click(function () {

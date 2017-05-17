@@ -254,7 +254,7 @@ class ApiController extends Controller
     public function GoToAxis(Request $request)
     {
 
-        DB::table('controlles')->where('user_id',$request->get("user_id"))->update(['state' => (string)$request->get("state"),'GoToX' => (string)$request->get("X"),'GoToY' => (string)$request->get("Y"),'GoToZ' =>(string)$request->get("Z"),'speed' =>$request->get("speed")]);
+        DB::table('controlles')->where('user_id',$request->get("user_id"))->update(['GoToX' => (string)$request->get("X"),'GoToY' => (string)$request->get("Y"),'speed' =>$request->get("speed")]);
     }
     public function Login(Request $request){
       $user=  DB::table('users')->where('email',$request->get("email"))->get(['email','password']);
@@ -292,8 +292,10 @@ class ApiController extends Controller
         DB::table('controlles')->where('user_id',$user_id)->update(['state'=>$state]);
 
     }
+    public  function  SetGoToFor($user_id)
+    {
+        DB::table('controlles')->where('user_id',$user_id)->update(['GoToX'=>'-1','GoToY'=>'-1']);
 
-
-
+    }
 
 }

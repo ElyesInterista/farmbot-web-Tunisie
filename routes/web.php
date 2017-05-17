@@ -52,6 +52,8 @@ Route::group(['prefix' => 'Api'], function ($id) {
     Route::get('/GetControllesFor/{user_id}','ApiController@GetControllesFor');
 
     Route::get('/SetStateControllesFor/{user_id}/{state}','ApiController@SetStateControllesFor');
+    Route::get('/SetGoToFor/{user_id}','ApiController@SetGoToFor');
+
 
     Route::get('/InitiateControlles/{user_id}','ApiController@InitiateControlles');
 

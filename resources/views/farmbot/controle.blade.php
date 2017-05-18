@@ -148,7 +148,7 @@
                     <div class="widget-wrapper webcam-widget">
                         <div class="row">
                             <div class="col-sm-12">
-                                <button class="button-like widget-control gray">Edit</button>
+                                {{--<button class="button-like widget-control gray">Edit</button>--}}
                                 <div class="widget-header"><h5>Camera</h5><i
                                             class="fa fa-question-circle widget-help-icon">
                                         <div class="widget-help-text">Press the edit button to update
@@ -162,9 +162,10 @@
                                 <div></div>
                                 <div class="webcam-stream-unavailable">
 
-                                    <iframe width="650" height="260" src="">
+                                    <iframe id="iframe" width="650" height="480" src="http://192.168.1.8:9090/stream/video.mjpeg">
+
                                     </iframe>
-                                    <text><!-- react-text: 927 -->Camera stream not available.<!-- /react-text --><br>
+                                    <text id="text"><!-- react-text: 927 -->Camera stream not available.<!-- /react-text --><br>
                                         <!-- react-text: 929 -->Press <!-- /react-text --><b>EDIT</b>
                                         <!-- react-text: 931 --> to add a stream.<!-- /react-text --></text>
                                 </div>
@@ -286,8 +287,11 @@ $.post("/farmbot-web/public/Api/GoToAxis",{user_id:"{{\Illuminate\Support\Facade
          console.log("sync and open camera");
      });
 
+     if(!$("#iframe").length) {
+         // iframe doesn't exist
+         $("#text").show();
 
-
-
+     }else
+     $("#text").hide();
  </script>
 @endsection

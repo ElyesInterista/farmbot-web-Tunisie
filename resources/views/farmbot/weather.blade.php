@@ -83,10 +83,10 @@ freeze
         </div>
 
     </div>
-    <scrip>
-        
+    <script>
 
-    </scrip>
+
+    </script>
 @endsection
 
 
